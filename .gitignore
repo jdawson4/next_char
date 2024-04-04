@@ -1,0 +1,9 @@
+# Author: Jacob Dawson
+#
+# For this app, we just want to ignore all the training and trained files.
+
+trained_dicts/*
+training_files/*
+
+!trained_dicts/quickBrownFox.json
+!training_files/quickBrownFox.txt
