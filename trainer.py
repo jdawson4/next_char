@@ -10,7 +10,7 @@ import json
 
 def trainOnFile(filename):
     print("processing", filename)
-    with open("training_files/" + filename, "r") as f:
+    with open("training_files/" + filename, "r", encoding="utf8") as f:
         text = "\n".join(f.readlines())
 
     unicodeChars = {}
