@@ -7,17 +7,19 @@
 import argparse
 import json
 
+
 def findNextChar(trainingOutput, thisChar):
     nextChar = "s"
     nextCharProb = 0
-    for k,v in trainingOutput[thisChar].items():
+    for k, v in trainingOutput[thisChar].items():
         if v > nextCharProb:
             nextChar = k
             nextCharProb = v
     return nextChar
 
+
 def predictFromFile(filename, length, startingChar):
-    with open('trained_dicts/' + filename) as f:
+    with open("trained_dicts/" + filename) as f:
         trainingOutput = json.load(f)
 
     lastChar = startingChar
@@ -30,6 +32,7 @@ def predictFromFile(filename, length, startingChar):
         lastChar = nextChar
 
     return generatedString
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -49,7 +52,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "startingChar",
         type=str,
-        default='s',
+        default="s",
         help="char to begin the string with. defaults to 's'",
     )
     args = parser.parse_args()
