@@ -14,9 +14,11 @@ def trainOnFile(filename):
         text = "\n".join(f.readlines())
 
     unicodeChars = {}
+    occurancesByChar = {}
     for i in range(0, 1200):
         # print(chr(i))
         unicodeChars[chr(i)] = {}
+        occurancesByChar[chr(i)] = 0
 
     prevChar = False
     totalChars = 0
@@ -26,6 +28,7 @@ def trainOnFile(filename):
             and (curChar.lower() in unicodeChars)
             and (prevChar.lower() in unicodeChars)
         ):
+            occurancesByChar[prevChar.lower()] += 1
             totalChars += 1
             if curChar.lower() in unicodeChars[prevChar.lower()]:
                 unicodeChars[prevChar.lower()][curChar.lower()] += 1
@@ -37,7 +40,7 @@ def trainOnFile(filename):
         k: unicodeChars[k] for k, v in unicodeChars.items() if len(v.keys()) > 0
     }
     unicodeChars = {
-        k1: {k2: v2 / totalChars for k2, v2 in v1.items()}
+        k1: {k2: v2 / occurancesByChar[k1] for k2, v2 in v1.items()}
         for k1, v1 in unicodeChars.items()
     }
     # print(unicodeChars)
