@@ -8,5 +8,5 @@ graphs/*
 
 !trained_dicts/quickBrownFox.json
 !training_files/quickBrownFox.txt
-!graphs/quickBrownFox.png
+!graphs/quickBrownFox_matrix.png
 
