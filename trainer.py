@@ -15,10 +15,10 @@ def trainOnFile(filename):
 
     unicodeChars = {}
     occurancesByChar = {}
-    for i in range(0, 1200):
-        # print(chr(i))
-        unicodeChars[chr(i)] = {}
-        occurancesByChar[chr(i)] = 0
+    charsToCareAbout = "abcdefghijklmnopqrstuvwxyz"
+    for c in charsToCareAbout:
+        unicodeChars[c] = {}
+        occurancesByChar[c] = 0
 
     prevChar = False
     totalChars = 0
